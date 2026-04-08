@@ -5,9 +5,16 @@ export const MainMenuOptions = ({
   extraInfoActive,
   extraInfo,
   name,
+  updateMenuSettings,
+  id,
 }) => {
   const [selectedOptionIdx, setSelectedOptionIdx] = useState(-1);
-  const [selectedOption, setSelectedOption] = useState({});
+  const [selectedOption, setSelectedOption] = useState({
+    settingId: id,
+    settingTitle: name,
+    settingSelected: -1,
+    settingSelectedName: "",
+  });
 
   const [activeOption, setActiveOption] = useState(-1);
   const onMouseEnter = (idx) => {
@@ -15,20 +22,24 @@ export const MainMenuOptions = ({
       setActiveOption(idx);
     }
   };
-  const onClick = (idx) => {
+  const onClick = (option, idx) => {
     setSelectedOptionIdx(idx);
+    setActiveOption(idx);
     setSelectedOption({
-      name: name,
-      options: options[idx],
+      settingId: id,
+      settingTitle: name,
+      settingSelected: idx,
+      settingSelectedName: option.text,
     });
+    updateMenuSettings(selectedOption);
   };
 
   return (
     <ul className="options">
       {options.map((option, idx) => (
         <li
-          onClick={() => onClick(idx)}
-          onMouseEnter={() => onMouseEnter(idx)}
+          onClick={() => onClick(option, idx)}
+          // onMouseEnter={() => onMouseEnter(idx)}
           key={idx}
           className="option"
         >
