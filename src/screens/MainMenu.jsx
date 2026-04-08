@@ -4,7 +4,7 @@ import { MainMenuTitle } from "../layout/MainMenuTitle";
 import sword from "../assets/sword.png";
 import mask from "../assets/mask.png";
 import hat from "../assets/witch-hat.png";
-import { useMenuSettingsStore } from "../state/MenuSettingsStore";
+import arrow from "../assets/arrow.png";
 import { useSavedGameStore } from "../state/SavedGameStore";
 
 export const MainMenu = ({ setActiveScreen }) => {
@@ -29,16 +29,19 @@ export const MainMenu = ({ setActiveScreen }) => {
                   text: savedGames[0].title,
                   date: savedGames[0].dateSaved,
                   played: savedGames[0].lastPlayed,
+                  icon: arrow,
                 },
                 {
                   text: savedGames[1].title,
                   date: savedGames[1].dateSaved,
                   played: savedGames[1].lastPlayed,
+                  icon: arrow,
                 },
                 {
                   text: savedGames[2].title,
                   date: savedGames[2].dateSaved,
                   played: savedGames[2].lastPlayed,
+                  icon: arrow,
                 },
               ]}
               extraInfoActive={true}
@@ -63,15 +66,19 @@ export const MainMenu = ({ setActiveScreen }) => {
             options={[
               {
                 text: "Fantasy",
+                icon: arrow,
               },
               {
                 text: "Horror",
+                icon: arrow,
               },
               {
                 text: "Medieval",
+                icon: arrow,
               },
               {
                 text: "Post-Apocalypse",
+                icon: arrow,
               },
             ]}
           />
@@ -105,12 +112,15 @@ export const MainMenu = ({ setActiveScreen }) => {
             options={[
               {
                 text: "Casual",
+                icon: arrow,
               },
               {
                 text: "Brutal",
+                icon: arrow,
               },
               {
                 text: "AI Hates Me",
+                icon: arrow,
               },
             ]}
           />
