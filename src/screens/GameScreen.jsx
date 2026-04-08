@@ -3,13 +3,20 @@ import arrow from "../assets/arrow.png";
 import castle from "../assets/fantasy-castle.png";
 import { useCurrentGameStore } from "../state/CurrentGameStore";
 import { usePlayerStore } from "../state/PlayerStore";
+import { GoogleGenAI } from "@google/genai";
+import { useEffect, useState } from "react";
 
 export const GameScreen = () => {
   const currentGame = useCurrentGameStore((state) => state.currentGame);
   const playerStats = usePlayerStore((state) => state.playerStats);
+  const [latestReply, setLatestReply] = useState("");
+
+  const ai = new GoogleGenAI({
+    apiKey: "",
+  });
 
   console.log(currentGame);
-  console.log(playerStats);
+
   return (
     <div className="container">
       <div className="game-container">
@@ -68,7 +75,7 @@ export const GameScreen = () => {
         </div>
         <div className="lower">
           <div className="textbox-container">
-            <p>vgkhbjnkasdvhkbjnasdhsdn.akkndjansnas cna sn </p>
+            <p>{latestReply}</p>
           </div>
           <div className="typingbox-container">
             <img className="icon" src={arrow} alt="" />

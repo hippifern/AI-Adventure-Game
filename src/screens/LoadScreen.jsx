@@ -2,42 +2,59 @@ import { useEffect, useState } from "react";
 import "../css/BootScreen.css";
 import { useMenuSettingsStore } from "../state/MenuSettingsStore";
 import { useCurrentGameStore } from "../state/CurrentGameStore";
-import { usePromptStore } from "../state/PromptStore";
 import { usePlayerStore } from "../state/PlayerStore";
+import { GoogleGenAI } from "@google/genai";
 
 export const LoadScreen = ({ setActiveScreen }) => {
   const menuSettings = useMenuSettingsStore((state) => state.menuSettings);
-  const prompts = usePromptStore((state) => state.prompts);
   const updateCurrentGame = useCurrentGameStore(
     (state) => state.updateCurrentGame,
   );
+  const currentGame = useCurrentGameStore((state) => state.currentGame);
+  const updateMessageList = useCurrentGameStore(
+    (state) => state.updateMessageList,
+  );
+
   const updatePlayerInventory = usePlayerStore(
     (state) => state.updatePlayerInventory,
   );
   const [map, setMap] = useState([]);
   const [count, setCount] = useState(0);
+  const ai = new GoogleGenAI({
+    apiKey: "",
+  });
 
   useEffect(() => {
     updateCurrentGame({
-      id: Math.floor(Math.random() * 10000),
-      dateSaved: new Date(),
-      lastPlayed: new Date(),
       gameSettings: menuSettings,
-      setupPrompts: {
-        setup: prompts.setup,
-        gameSummary: prompts.newGameSummary,
-        playerAction: prompts.newGamePlayerAction,
-      },
+      gameSummary: `The adventure is the ${menuSettings[0].settingSelectedName} genre. 
+      The player class is ${menuSettings[1].settingSelectedName} and 
+      the difficulty of the adventure should be ${menuSettings[2].settingSelectedName}`,
+      playerAction: "The player has not made an action yet.",
+      messageList: [],
     });
     updatePlayerInventory(menuSettings[1].settingSelectedName);
+
+    async function setupDungeonMasterOnLoad() {
+      const response = await ai.models.generateContent({
+        model: "gemini-3.1-flash-lite-preview",
+        contents: `${currentGame.setupPrompts.setup} ${currentGame.setupPrompts.gameSummary} ${currentGame.setupPrompts.playerAction}`,
+      });
+      updateMessageList({
+        player_message: currentGame.setupPrompts.playerAction,
+        ai_reply: response.text,
+      });
+    }
+    setupDungeonMasterOnLoad();
+
     const countUp = () => {
       setMap((prev) => [...prev, 0]);
-      setCount((count) => count + 1000);
+      setCount((count) => count + 1500);
     };
-    const intervalId = setInterval(countUp, 1000);
+    const intervalId = setInterval(countUp, 1500);
     setTimeout(() => {
       setActiveScreen(3);
-    }, 9000);
+    }, 13500);
     return () => clearInterval(intervalId);
   }, [map, count]);
 
