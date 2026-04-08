@@ -14,6 +14,19 @@ $background-colour: rgb(20, 20, 20);
     color: solid $primary-colour;
     animation: colorChange 1s infinite alternate;
   }
+
+  .loading-bar-container {
+    height: 10%;
+    width: 30%;
+    display: flex;
+    padding: 0.5%;
+    gap: 2%;
+    .loading-item {
+      height: 100%;
+      width: 7%;
+      background-color: $primary-colour;
+    }
+  }
 }
 
 @keyframes colorChange {

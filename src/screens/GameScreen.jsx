@@ -1,0 +1,74 @@
+import "../css/GameScreen.css";
+import arrow from "../assets/arrow.png";
+import castle from "../assets/fantasy-castle.png";
+
+export const GameScreen = () => {
+  return (
+    <div className="container">
+      <div className="game-container">
+        <div className="upper">
+          <div className="image-container">
+            <img
+              className="imagery"
+              src={castle}
+              alt=""
+              height={350}
+              width={350}
+            />
+          </div>
+          <div className="stats-container">
+            <div className="stats-title">
+              <div className="line one"></div>
+              <h3>Player Stats</h3>
+              <div className="line two"></div>
+            </div>
+            <div className="stats">
+              <div className="stat-list">
+                <div className="stats-item">
+                  <h3>HP:</h3>
+                  <h3>8/10</h3>
+                </div>
+                <div className="stats-item">
+                  <h3>Energy:</h3>
+                  <h3>3/10</h3>
+                </div>
+                <div className="stats-item">
+                  <h3>Strength:</h3>
+                  <h3>6/10</h3>
+                </div>
+                <div className="stats-item">
+                  <h3>Luck:</h3>
+                  <h3>2/10</h3>
+                </div>
+              </div>
+              <div className="inv-container">
+                <h3 className="inv-title">Inventory</h3>
+                <div className="stats-item inventory">
+                  <h3>Primary Item</h3>
+                  <h3>Pick Up Item 1</h3>
+                  <h3>Pick Up Item 2</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mid">
+          <div className="name-container">
+            <div className="line one"></div>
+            <h3>Text Adventure</h3>
+            <div className="line two"></div>
+          </div>
+        </div>
+        <div className="lower">
+          <div className="textbox-container">
+            <p>vgkhbjnkasdvhkbjnasdhsdn.akkndjansnas cna sn </p>
+          </div>
+          <div className="typingbox-container">
+            <img className="icon" src={arrow} alt="" />
+            <input type="text" name="" id="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

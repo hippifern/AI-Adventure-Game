@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap");
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 1%;
+}
+.container .game-container {
+  height: 100%;
+  width: 100%;
+  border: 1px dashed rgb(75, 255, 75);
+  display: flex;
+  flex-direction: column;
+}
+.container .game-container .upper {
+  flex: 7;
+  display: flex;
+  padding: 1%;
+}
+.container .game-container .upper .image-container {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
+.container .game-container .upper .stats-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.container .game-container .upper .stats-container .stats-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(75, 255, 75);
+  gap: 2%;
+}
+.container .game-container .upper .stats-container .stats-title .one {
+  flex: 1;
+  height: 5px;
+}
+.container .game-container .upper .stats-container .stats-title .two {
+  flex: 1;
+  height: 5px;
+}
+.container .game-container .upper .stats-container .stats {
+  flex: 1;
+  border-left: 1px dashed rgb(75, 255, 75);
+  border-right: 1px dashed rgb(75, 255, 75);
+  border-bottom: 1px dashed rgb(75, 255, 75);
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container .game-container .upper .stats-container .stats .stats-item {
+  display: flex;
+  justify-content: space-between;
+}
+.container .game-container .upper .stats-container .stats .inv-container .inv-title {
+  border-bottom: 1px dashed rgb(75, 255, 75);
+  margin-bottom: 5%;
+}
+.container .game-container .upper .stats-container .stats .inv-container .inventory {
+  display: flex;
+  flex-direction: column;
+}
+.container .game-container .mid {
+  flex: 1;
+  border-top: 1px solid rgb(75, 255, 75);
+  border-bottom: 1px solid rgb(75, 255, 75);
+  display: flex;
+  align-items: center;
+}
+.container .game-container .mid .name-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2%;
+}
+.container .game-container .mid .name-container .one {
+  flex: 1;
+  height: 15px;
+}
+.container .game-container .mid .name-container .two {
+  flex: 3;
+  height: 15px;
+}
+.container .game-container .lower {
+  flex: 8;
+  display: flex;
+  flex-direction: column;
+}
+.container .game-container .lower .textbox-container {
+  flex: 5;
+  padding: 1.5%;
+}
+.container .game-container .lower .typingbox-container {
+  flex: 1;
+  border-top: 1px dashed rgb(75, 255, 75);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 1%;
+  padding-right: 1%;
+  gap: 1%;
+}
+.container .game-container .lower .typingbox-container input {
+  height: 70%;
+  width: 100%;
+  background-color: rgb(20, 20, 20);
+  outline: none;
+  border: none;
+  color: rgb(75, 255, 75);
+  font-size: 1.3rem;
+  font-family: "Handjet", monospace;
+  padding-left: 1%;
+  padding-right: 1%;
+}/*# sourceMappingURL=GameScreen.css.map */

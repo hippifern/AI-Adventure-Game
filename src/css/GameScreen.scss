@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap");
+
+$primary-colour: rgb(75, 255, 75);
+$secondary-colour: rgba(75, 255, 75, 0.4);
+$background-colour: rgb(20, 20, 20);
+$font: "Handjet", monospace;
+
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 1%;
+  .game-container {
+    height: 100%;
+    width: 100%;
+    border: 1px dashed $primary-colour;
+    display: flex;
+    flex-direction: column;
+    .upper {
+      flex: 7;
+      display: flex;
+      padding: 1%;
+      .image-container {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+      }
+      .stats-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .stats-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border: 1px solid $primary-colour;
+          gap: 2%;
+          .one {
+            flex: 1;
+            height: 5px;
+          }
+          .two {
+            flex: 1;
+            height: 5px;
+          }
+        }
+        .stats {
+          flex: 1;
+          border-left: 1px dashed $primary-colour;
+          border-right: 1px dashed $primary-colour;
+          border-bottom: 1px dashed $primary-colour;
+          padding: 5%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .stats-item {
+            display: flex;
+            justify-content: space-between;
+          }
+          .inv-container {
+            .inv-title {
+              border-bottom: 1px dashed $primary-colour;
+              margin-bottom: 5%;
+            }
+            .inventory {
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        }
+      }
+    }
+    .mid {
+      flex: 1;
+      border-top: 1px solid $primary-colour;
+      border-bottom: 1px solid $primary-colour;
+      display: flex;
+      align-items: center;
+      .name-container {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2%;
+        .one {
+          flex: 1;
+          height: 15px;
+        }
+        .two {
+          flex: 3;
+          height: 15px;
+        }
+      }
+    }
+    .lower {
+      flex: 8;
+      display: flex;
+      flex-direction: column;
+      .textbox-container {
+        flex: 5;
+        padding: 1.5%;
+      }
+      .typingbox-container {
+        flex: 1;
+        border-top: 1px dashed $primary-colour;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding-left: 1%;
+        padding-right: 1%;
+        gap: 1%;
+        input {
+          height: 70%;
+          width: 100%;
+          background-color: $background-colour;
+          outline: none;
+          border: none;
+          color: $primary-colour;
+          font-size: 1.3rem;
+          font-family: $font;
+          padding-left: 1%;
+          padding-right: 1%;
+        }
+      }
+    }
+  }
+}

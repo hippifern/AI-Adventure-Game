@@ -89,6 +89,32 @@ button {
     border: 1px solid $primary-colour;
     display: flex;
   }
+  .alt-section {
+    height: 4%;
+    display: flex;
+    .inner-upper {
+      flex: 8;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .alt-options {
+      display: flex;
+      flex: 2;
+      gap: 5%;
+      margin-left: 2%;
+      .alt-button {
+        height: 100%;
+        font-size: 1.2rem;
+        flex: 1;
+        padding: 0;
+        border: none;
+        border-left: 1px solid $primary-colour;
+        border-right: 1px solid $primary-colour;
+      }
+    }
+  }
 }
 
 .scanlines {

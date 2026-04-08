@@ -5,6 +5,7 @@ import { MainMenu } from "./screens/MainMenu";
 import { LoadScreen } from "./screens/LoadScreen";
 import { useBootStore } from "./state/BootStore";
 import { useSavedGameStore } from "./state/SavedGameStore";
+import { GameScreen } from "./screens/GameScreen";
 
 function App() {
   const loadBootCheck = useBootStore((state) => state.loadBootCheck);
@@ -27,17 +28,39 @@ function App() {
           </div>
         </div>
         <div className="active-section-outer">
-          <div className="active-section-inner-upper">
-            <div className="line"></div>
-            <div className="line"></div>
-          </div>
+          {activeScreen === 3 ? (
+            <div className="alt-section">
+              <div className="inner-upper">
+                <div className="line"></div>
+                <div className="line"></div>
+              </div>
+              <div className="alt-options">
+                <button className="alt-button">Save</button>
+                <button
+                  onClick={() => {
+                    setActiveScreen(1);
+                  }}
+                  className="alt-button"
+                >
+                  Quit
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="active-section-inner-upper">
+              <div className="line"></div>
+              <div className="line"></div>
+            </div>
+          )}
           <div className="active-section-inner-lower">
             {activeScreen === 0 && bootActive === "true" ? (
               <BootScreen setActiveScreen={setActiveScreen} />
             ) : activeScreen === 1 ? (
               <MainMenu setActiveScreen={setActiveScreen} />
             ) : activeScreen === 2 ? (
-              <LoadScreen />
+              <LoadScreen setActiveScreen={setActiveScreen} />
+            ) : activeScreen === 3 ? (
+              <GameScreen />
             ) : (
               <></>
             )}
