@@ -95,6 +95,7 @@ button {
     linear-gradient(90deg, rgba(182, 182, 182, 0.05) 2px, transparent 2px);
   background-size: 4px 4px;
   animation: noise 1s steps(10) infinite;
+  pointer-events: none;
 }
 
 //ANIMATIONS

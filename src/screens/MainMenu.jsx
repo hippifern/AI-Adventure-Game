@@ -62,6 +62,7 @@ export const MainMenu = () => {
         <div className="class-right">
           <MainMenuTitle titleText={"Choose Character Role:"} />
           <MainMenuOptions
+            name={"ClassChoice"}
             options={[
               {
                 text: "Rogue",

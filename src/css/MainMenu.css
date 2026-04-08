@@ -17,6 +17,7 @@
   display: flex;
   gap: 2%;
   align-items: center;
+  cursor: pointer;
 }
 .options .option .option-info {
   width: 100%;
