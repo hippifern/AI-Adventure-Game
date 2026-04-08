@@ -11,7 +11,7 @@ function App() {
       <div className="inner-container">
         <div className="title-outer">
           <div className="title-inner">
-            <h1>== AI ADVENTURE GAME ==</h1>
+            <h1>== AI ADVENTURE TERMINAL ==</h1>
           </div>
         </div>
         <div className="active-section-outer">

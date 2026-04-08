@@ -1,0 +1,62 @@
+// VARIABLES
+$primary-colour: rgb(75, 255, 75);
+$secondary-colour: rgba(75, 255, 75, 0.4);
+$background-colour: rgb(20, 20, 20);
+
+.screen-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-colour;
+  .left-column {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .left-upper {
+      height: 100%;
+    }
+    .left-lower {
+      height: 100%;
+      padding: 5%;
+      .load-game-container {
+        height: 100%;
+        border: 1px solid $primary-colour;
+        padding: 2.5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .load-game-title {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+          flex: 1;
+        }
+        .saved-options {
+          flex: 3;
+          .option {
+            .option-info {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+        }
+        .load-button-container {
+          display: flex;
+          justify-content: end;
+          .load-button {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+  .right-column {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}

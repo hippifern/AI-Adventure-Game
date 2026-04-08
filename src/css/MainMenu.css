@@ -1,0 +1,55 @@
+.screen-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(20, 20, 20);
+}
+.screen-container .left-column {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.screen-container .left-column .left-upper {
+  height: 100%;
+}
+.screen-container .left-column .left-lower {
+  height: 100%;
+  padding: 5%;
+}
+.screen-container .left-column .left-lower .load-game-container {
+  height: 100%;
+  border: 1px solid rgb(75, 255, 75);
+  padding: 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.screen-container .left-column .left-lower .load-game-container .load-game-title {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  flex: 1;
+}
+.screen-container .left-column .left-lower .load-game-container .saved-options {
+  flex: 3;
+}
+.screen-container .left-column .left-lower .load-game-container .saved-options .option .option-info {
+  display: flex;
+  justify-content: space-between;
+}
+.screen-container .left-column .left-lower .load-game-container .load-button-container {
+  display: flex;
+  justify-content: end;
+}
+.screen-container .left-column .left-lower .load-game-container .load-button-container .load-button {
+  font-size: 1rem;
+}
+.screen-container .right-column {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=MainMenu.css.map */
