@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { useMenuSettingsStore } from "../state/MenuSettingsStore";
+import useSound from "use-sound";
+import clickSfx from "../assets/click-sound.mp3";
 
 export const MainMenuOptions = ({ options, extraInfoActive, name, id }) => {
   const updateMenuSettings = useMenuSettingsStore(
     (state) => state.updateMenuSettings,
   );
   const [activeOption, setActiveOption] = useState(-1);
+  const [play] = useSound(clickSfx);
+
   const onClick = (option, idx) => {
+    play();
     setActiveOption(idx);
     updateMenuSettings({
       settingId: id,

@@ -5,6 +5,7 @@ import sword from "../assets/sword.png";
 import mask from "../assets/mask.png";
 import hat from "../assets/witch-hat.png";
 import arrow from "../assets/arrow.png";
+import castle from "../assets/fantasy-castle.png";
 import { useSavedGameStore } from "../state/SavedGameStore";
 
 export const MainMenu = ({ setActiveScreen }) => {
@@ -18,7 +19,13 @@ export const MainMenu = ({ setActiveScreen }) => {
     <div className="screen-container">
       <div className="left-column">
         <div className="left-upper">
-          <img src="" alt="" />
+          <img
+            className="imagery"
+            src={castle}
+            alt=""
+            height={350}
+            width={350}
+          />
         </div>
         <div className="left-lower">
           <div className="load-game-container">
@@ -70,10 +77,6 @@ export const MainMenu = ({ setActiveScreen }) => {
               },
               {
                 text: "Horror",
-                icon: arrow,
-              },
-              {
-                text: "Medieval",
                 icon: arrow,
               },
               {

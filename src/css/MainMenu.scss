@@ -56,10 +56,14 @@ ul {
     display: flex;
     flex-direction: column;
     .left-upper {
-      height: 100%;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5%;
     }
     .left-lower {
-      height: 100%;
+      flex: 1;
       padding: 5%;
       .load-game-container {
         height: 100%;
@@ -72,7 +76,7 @@ ul {
           display: flex;
           justify-content: end;
           .load-button {
-            font-size: 1rem;
+            font-size: 1.5rem;
           }
         }
       }
@@ -84,13 +88,13 @@ ul {
     display: flex;
     flex-direction: column;
     padding: 1%;
-    padding-bottom: 4%;
+    padding-bottom: 3%;
     justify-content: space-between;
     .start-button-container {
       display: flex;
       justify-content: end;
       .start-button {
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
     }
   }
