@@ -1,14 +1,14 @@
-.screen-container{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.screen-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(20, 20, 20);
 }
-
-.loading-text{
-    color: solid rgb(75, 255, 75);
-    animation: colorChange 1s infinite alternate;
+.screen-container .loading-text {
+  color: solid rgb(75, 255, 75);
+  animation: colorChange 1s infinite alternate;
 }
 
 @keyframes colorChange {
@@ -16,6 +16,6 @@
     color: rgb(75, 255, 75);
   }
   100% {
-    color: rgba(75, 255, 75, 0.379);
+    color: rgba(75, 255, 75, 0.4);
   }
-}
+}/*# sourceMappingURL=BootScreen.css.map */

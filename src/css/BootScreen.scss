@@ -1,0 +1,26 @@
+// VARIABLES
+$primary-colour: rgb(75, 255, 75);
+$secondary-colour: rgba(75, 255, 75, 0.4);
+$background-colour: rgb(20, 20, 20);
+
+.screen-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-colour;
+  .loading-text {
+    color: solid $primary-colour;
+    animation: colorChange 1s infinite alternate;
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: $primary-colour;
+  }
+  100% {
+    color: $secondary-colour;
+  }
+}
