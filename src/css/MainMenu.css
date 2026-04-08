@@ -1,3 +1,34 @@
+.main-menu-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  flex: 1;
+}
+
+.options {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 1%;
+}
+.options .option {
+  flex: 1;
+  display: flex;
+  gap: 2%;
+  align-items: center;
+}
+.options .option .option-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  height: 20px;
+  filter: brightness(0) saturate(100%) invert(93%) sepia(95%) saturate(3930%) hue-rotate(49deg) brightness(111%) contrast(101%);
+}
+
 .screen-container {
   height: 100%;
   width: 100%;
@@ -27,19 +58,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.screen-container .left-column .left-lower .load-game-container .load-game-title {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  flex: 1;
-}
-.screen-container .left-column .left-lower .load-game-container .saved-options {
-  flex: 3;
-}
-.screen-container .left-column .left-lower .load-game-container .saved-options .option .option-info {
-  display: flex;
-  justify-content: space-between;
-}
 .screen-container .left-column .left-lower .load-game-container .load-button-container {
   display: flex;
   justify-content: end;
@@ -52,4 +70,14 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 1%;
+  padding-bottom: 4%;
+  justify-content: space-between;
+}
+.screen-container .right-column .start-button-container {
+  display: flex;
+  justify-content: end;
+}
+.screen-container .right-column .start-button-container .start-button {
+  font-size: 1rem;
 }/*# sourceMappingURL=MainMenu.css.map */
