@@ -1,17 +1,22 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import "./css/App.css";
 import { BootScreen } from "./screens/BootScreen";
 import { MainMenu } from "./screens/MainMenu";
+import { LoadScreen } from "./screens/LoadScreen";
 import { useBootStore } from "./state/BootStore";
+import { useSavedGameStore } from "./state/SavedGameStore";
 
 function App() {
-  const [activeScreen, setActiveScreen] = useState(0);
   const loadBootCheck = useBootStore((state) => state.loadBootCheck);
   const bootActive = useBootStore((state) => state.bootActive);
+  const [activeScreen, setActiveScreen] = useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     loadBootCheck();
-  }, []);
+    if (bootActive === "false") {
+      setActiveScreen(1);
+    }
+  }, [bootActive]);
 
   return (
     <div className="parent-container">
@@ -30,7 +35,9 @@ function App() {
             {activeScreen === 0 && bootActive === "true" ? (
               <BootScreen setActiveScreen={setActiveScreen} />
             ) : activeScreen === 1 ? (
-              <MainMenu />
+              <MainMenu setActiveScreen={setActiveScreen} />
+            ) : activeScreen === 2 ? (
+              <LoadScreen />
             ) : (
               <></>
             )}

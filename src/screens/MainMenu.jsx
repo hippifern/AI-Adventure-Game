@@ -5,9 +5,16 @@ import sword from "../assets/sword.png";
 import mask from "../assets/mask.png";
 import hat from "../assets/witch-hat.png";
 import { useMenuSettingsStore } from "../state/MenuSettingsStore";
+import { useSavedGameStore } from "../state/SavedGameStore";
 
-export const MainMenu = () => {
+export const MainMenu = ({ setActiveScreen }) => {
   const menuSettings = useMenuSettingsStore((state) => state.menuSettings);
+  const savedGames = useSavedGameStore((state) => state.savedGames);
+
+  const onClick = () => {
+    setActiveScreen(2);
+  };
+
   return (
     <div className="screen-container">
       <div className="left-column">
@@ -20,20 +27,27 @@ export const MainMenu = () => {
             <MainMenuOptions
               options={[
                 {
-                  text: "Saved Adventure 1",
+                  text: savedGames[0].title,
+                  date: savedGames[0].dateSaved,
+                  played: savedGames[0].lastPlayed,
                 },
                 {
-                  text: "Saved Adventure 2",
+                  text: savedGames[1].title,
+                  date: savedGames[1].dateSaved,
+                  played: savedGames[1].lastPlayed,
                 },
                 {
-                  text: "Saved Adventure 3",
+                  text: savedGames[2].title,
+                  date: savedGames[2].dateSaved,
+                  played: savedGames[2].lastPlayed,
                 },
               ]}
               extraInfoActive={true}
-              extraInfo={["Date Saved", "Last Played"]}
             />
             <div className="load-button-container">
-              <button className="load-button button">Load Adventure</button>
+              <button onClick={onClick} className="load-button button">
+                Load Adventure
+              </button>
             </div>
           </div>
         </div>
@@ -103,10 +117,7 @@ export const MainMenu = () => {
           />
         </div>
         <div className="start-button-container">
-          <button
-            onClick={() => console.log(menuSettings)}
-            className="start-button button"
-          >
+          <button onClick={onClick} className="start-button button">
             Start New Adventure
           </button>
         </div>

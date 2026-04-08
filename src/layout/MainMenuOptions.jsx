@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { useMenuSettingsStore } from "../state/MenuSettingsStore";
 
-export const MainMenuOptions = ({
-  options,
-  extraInfoActive,
-  extraInfo,
-  name,
-  id,
-}) => {
+export const MainMenuOptions = ({ options, extraInfoActive, name, id }) => {
   const updateMenuSettings = useMenuSettingsStore(
     (state) => state.updateMenuSettings,
   );
@@ -35,8 +29,8 @@ export const MainMenuOptions = ({
             <h3>{option.text}</h3>
             {extraInfoActive ? (
               <>
-                <h4>{extraInfo[0]}</h4>
-                <h4>{extraInfo[1]}</h4>
+                <h4>{option.date}</h4>
+                <h4>{option.played}</h4>
               </>
             ) : (
               <></>
