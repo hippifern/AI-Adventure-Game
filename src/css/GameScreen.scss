@@ -10,13 +10,13 @@ $font: "Handjet", monospace;
   width: 100%;
   padding: 1%;
   .game-container {
-    height: 100%;
+    height: auto;
     width: 100%;
     border: 1px dashed $primary-colour;
     display: flex;
     flex-direction: column;
     .upper {
-      flex: 7;
+      height: 40%;
       display: flex;
       padding: 1%;
       .image-container {
@@ -63,14 +63,13 @@ $font: "Handjet", monospace;
             }
             .inventory {
               display: flex;
-              flex-direction: column;
             }
           }
         }
       }
     }
     .mid {
-      flex: 1;
+      height: 5%;
       border-top: 1px solid $primary-colour;
       border-bottom: 1px solid $primary-colour;
       display: flex;
@@ -92,13 +91,16 @@ $font: "Handjet", monospace;
       }
     }
     .lower {
-      flex: 8;
+      height: 380px;
       display: flex;
       flex-direction: column;
       .textbox-container {
         flex: 5;
         padding: 1.5%;
         overflow: scroll;
+        p {
+          font-size: 1.2rem;
+        }
       }
       .typingbox-container {
         flex: 1;

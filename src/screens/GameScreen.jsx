@@ -9,13 +9,20 @@ import { useEffect, useState } from "react";
 export const GameScreen = () => {
   const currentGame = useCurrentGameStore((state) => state.currentGame);
   const playerStats = usePlayerStore((state) => state.playerStats);
-  const [latestReply, setLatestReply] = useState("");
+  const [messageHistoryParsed, setMessageHistoryParsed] = useState([]);
+  console.log(currentGame);
 
   const ai = new GoogleGenAI({
     apiKey: "",
   });
 
-  console.log(currentGame);
+  useEffect(() => {
+    const messageHistoryParsed2 = currentGame.messageList.map((message) => {
+      const preppedReply = message.ai_reply.split("\n");
+      return preppedReply;
+    });
+    setMessageHistoryParsed(messageHistoryParsed2);
+  }, []);
 
   return (
     <div className="container">
@@ -26,8 +33,8 @@ export const GameScreen = () => {
               className="imagery"
               src={castle}
               alt=""
-              height={350}
-              width={350}
+              height={250}
+              width={250}
             />
           </div>
           <div className="stats-container">
@@ -75,7 +82,16 @@ export const GameScreen = () => {
         </div>
         <div className="lower">
           <div className="textbox-container">
-            <p>{latestReply}</p>
+            {messageHistoryParsed.map((messageArray) => {
+              return messageArray.map((line) => {
+                return (
+                  <>
+                    <p>{line}</p>
+                    <br />
+                  </>
+                );
+              });
+            })}
           </div>
           <div className="typingbox-container">
             <img className="icon" src={arrow} alt="" />

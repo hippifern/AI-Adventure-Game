@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import "../css/BootScreen.css";
 import { useMenuSettingsStore } from "../state/MenuSettingsStore";
 import { useCurrentGameStore } from "../state/CurrentGameStore";
@@ -24,7 +24,7 @@ export const LoadScreen = ({ setActiveScreen }) => {
     apiKey: "",
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     updateCurrentGame({
       gameSettings: menuSettings,
       gameSummary: `The adventure is the ${menuSettings[0].settingSelectedName} genre. 
@@ -45,8 +45,11 @@ export const LoadScreen = ({ setActiveScreen }) => {
         ai_reply: response.text,
       });
     }
-    setupDungeonMasterOnLoad();
 
+    setupDungeonMasterOnLoad();
+  }, []);
+
+  useEffect(() => {
     const countUp = () => {
       setMap((prev) => [...prev, 0]);
       setCount((count) => count + 1500);
