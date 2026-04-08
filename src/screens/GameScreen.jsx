@@ -1,8 +1,15 @@
 import "../css/GameScreen.css";
 import arrow from "../assets/arrow.png";
 import castle from "../assets/fantasy-castle.png";
+import { useCurrentGameStore } from "../state/CurrentGameStore";
+import { usePlayerStore } from "../state/PlayerStore";
 
 export const GameScreen = () => {
+  const currentGame = useCurrentGameStore((state) => state.currentGame);
+  const playerStats = usePlayerStore((state) => state.playerStats);
+
+  console.log(currentGame);
+  console.log(playerStats);
   return (
     <div className="container">
       <div className="game-container">
@@ -25,28 +32,28 @@ export const GameScreen = () => {
             <div className="stats">
               <div className="stat-list">
                 <div className="stats-item">
-                  <h3>HP:</h3>
-                  <h3>8/10</h3>
+                  <h3>Health:</h3>
+                  <h3>{playerStats.health}/10</h3>
                 </div>
                 <div className="stats-item">
                   <h3>Energy:</h3>
-                  <h3>3/10</h3>
+                  <h3>{playerStats.energy}/10</h3>
                 </div>
                 <div className="stats-item">
                   <h3>Strength:</h3>
-                  <h3>6/10</h3>
+                  <h3>{playerStats.strength}/10</h3>
                 </div>
                 <div className="stats-item">
                   <h3>Luck:</h3>
-                  <h3>2/10</h3>
+                  <h3>{playerStats.luck}/10</h3>
                 </div>
               </div>
               <div className="inv-container">
                 <h3 className="inv-title">Inventory</h3>
                 <div className="stats-item inventory">
-                  <h3>Primary Item</h3>
-                  <h3>Pick Up Item 1</h3>
-                  <h3>Pick Up Item 2</h3>
+                  <h3>{playerStats.inventory.primary}</h3>
+                  <h3>{playerStats.inventory.pickUpOne}</h3>
+                  <h3>{playerStats.inventory.pickUpTwo}</h3>
                 </div>
               </div>
             </div>

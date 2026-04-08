@@ -93,6 +93,7 @@
 .container .game-container .lower .textbox-container {
   flex: 5;
   padding: 1.5%;
+  overflow: scroll;
 }
 .container .game-container .lower .typingbox-container {
   flex: 1;

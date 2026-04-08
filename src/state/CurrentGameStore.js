@@ -11,7 +11,6 @@ export const useCurrentGameStore = create((set) => ({
   updateCurrentGame: (settings) =>
     set((state) => {
       state.currentGame = settings;
-      console.log(state.currentGame);
       return state;
     }),
 }));

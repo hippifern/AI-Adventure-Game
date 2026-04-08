@@ -72,11 +72,15 @@ export const MainMenu = ({ setActiveScreen }) => {
             id={0}
             options={[
               {
-                text: "Fantasy",
+                text: "Fantasy Land",
                 icon: arrow,
               },
               {
-                text: "Horror",
+                text: "Dungeon Delve",
+                icon: arrow,
+              },
+              {
+                text: "Horror Crypts",
                 icon: arrow,
               },
               {
@@ -102,6 +106,10 @@ export const MainMenu = ({ setActiveScreen }) => {
               },
               {
                 text: "Healer",
+                icon: hat,
+              },
+              {
+                text: "Magician",
                 icon: hat,
               },
             ]}

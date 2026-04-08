@@ -98,6 +98,7 @@ $font: "Handjet", monospace;
       .textbox-container {
         flex: 5;
         padding: 1.5%;
+        overflow: scroll;
       }
       .typingbox-container {
         flex: 1;

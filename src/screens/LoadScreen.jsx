@@ -3,12 +3,16 @@ import "../css/BootScreen.css";
 import { useMenuSettingsStore } from "../state/MenuSettingsStore";
 import { useCurrentGameStore } from "../state/CurrentGameStore";
 import { usePromptStore } from "../state/PromptStore";
+import { usePlayerStore } from "../state/PlayerStore";
 
 export const LoadScreen = ({ setActiveScreen }) => {
   const menuSettings = useMenuSettingsStore((state) => state.menuSettings);
   const prompts = usePromptStore((state) => state.prompts);
   const updateCurrentGame = useCurrentGameStore(
     (state) => state.updateCurrentGame,
+  );
+  const updatePlayerInventory = usePlayerStore(
+    (state) => state.updatePlayerInventory,
   );
   const [map, setMap] = useState([]);
   const [count, setCount] = useState(0);
@@ -25,7 +29,7 @@ export const LoadScreen = ({ setActiveScreen }) => {
         playerAction: prompts.newGamePlayerAction,
       },
     });
-
+    updatePlayerInventory(menuSettings[1].settingSelectedName);
     const countUp = () => {
       setMap((prev) => [...prev, 0]);
       setCount((count) => count + 1000);
