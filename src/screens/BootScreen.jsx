@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import "../css/BootScreen.css";
+import { useBootStore } from "../state/BootStore";
 
 export const BootScreen = (props) => {
+  const updateBootActive = useBootStore((state) => state.updateBootActive);
+
   const [activePhrase, setActivePhrase] = useState();
   const [loops, setLoops] = useState(0);
   const phrases = [
@@ -13,6 +16,7 @@ export const BootScreen = (props) => {
   ];
 
   const onClickBootButton = () => {
+    updateBootActive();
     props.setActiveScreen(1);
   };
 

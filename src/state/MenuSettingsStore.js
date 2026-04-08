@@ -27,6 +27,34 @@ export const useMenuSettingsStore = create((set) => ({
       };
       return state;
     }),
-  clearMenuSettings: () => set(),
-  resetMenuSettingss: () => set(),
+  clearMenuSettings: (setting) =>
+    set((state) => {
+      state.menuSettings[setting.settingId] = {
+        settingTitle: setting.settingTitle,
+        settingSelected: -1,
+        settingSelectedName: "",
+      };
+      return state;
+    }),
+  resetMenuSettingss: () =>
+    set((state) => {
+      state.menuSettings = [
+        {
+          settingTitle: "genre",
+          settingSelected: -1,
+          settingSelectedName: "",
+        },
+        {
+          settingTitle: "playerClass",
+          settingSelected: -1,
+          settingSelectedName: "",
+        },
+        {
+          settingTitle: "difficulty",
+          settingSelected: -1,
+          settingSelectedName: "",
+        },
+      ];
+      return state;
+    }),
 }));

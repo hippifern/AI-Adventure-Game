@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./css/App.css";
 import { BootScreen } from "./screens/BootScreen";
 import { MainMenu } from "./screens/MainMenu";
+import { useBootStore } from "./state/BootStore";
 
 function App() {
   const [activeScreen, setActiveScreen] = useState(0);
+  const loadBootCheck = useBootStore((state) => state.loadBootCheck);
+  const bootActive = useBootStore((state) => state.bootActive);
+
+  useEffect(() => {
+    loadBootCheck();
+  }, []);
 
   return (
     <div className="parent-container">
@@ -20,7 +27,7 @@ function App() {
             <div className="line"></div>
           </div>
           <div className="active-section-inner-lower">
-            {activeScreen === 0 ? (
+            {activeScreen === 0 && bootActive === "true" ? (
               <BootScreen setActiveScreen={setActiveScreen} />
             ) : activeScreen === 1 ? (
               <MainMenu />

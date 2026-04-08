@@ -4,15 +4,10 @@ import { MainMenuTitle } from "../layout/MainMenuTitle";
 import sword from "../assets/sword.png";
 import mask from "../assets/mask.png";
 import hat from "../assets/witch-hat.png";
-import { useEffect } from "react";
 import { useMenuSettingsStore } from "../state/MenuSettingsStore";
 
 export const MainMenu = () => {
   const menuSettings = useMenuSettingsStore((state) => state.menuSettings);
-  const updateMenuSettings = useMenuSettingsStore(
-    (state) => state.updateMenuSettings,
-  );
-
   return (
     <div className="screen-container">
       <div className="left-column">
@@ -50,6 +45,8 @@ export const MainMenu = () => {
         <div className="genre-right">
           <MainMenuTitle titleText={"Choose Adventure Genre:"} />
           <MainMenuOptions
+            name={"genre"}
+            id={0}
             options={[
               {
                 text: "Fantasy",
@@ -71,7 +68,6 @@ export const MainMenu = () => {
           <MainMenuOptions
             name={"playerClass"}
             id={1}
-            updateMenuSettings={updateMenuSettings}
             options={[
               {
                 text: "Rogue",
@@ -91,6 +87,8 @@ export const MainMenu = () => {
         <div className="crazy-ai-right">
           <MainMenuTitle titleText={"Choose AI Craziness:"} />
           <MainMenuOptions
+            name={"difficulty"}
+            id={2}
             options={[
               {
                 text: "Casual",
@@ -105,7 +103,12 @@ export const MainMenu = () => {
           />
         </div>
         <div className="start-button-container">
-          <button className="start-button button">Start New Adventure</button>
+          <button
+            onClick={() => console.log(menuSettings)}
+            className="start-button button"
+          >
+            Start New Adventure
+          </button>
         </div>
       </div>
     </div>

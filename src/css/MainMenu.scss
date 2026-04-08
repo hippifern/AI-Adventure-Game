@@ -21,6 +21,9 @@ $background-colour: rgb(20, 20, 20);
     display: flex;
     gap: 2%;
     align-items: center;
+    :hover {
+      text-decoration: underline;
+    }
     cursor: pointer;
     .option-info {
       width: 100%;
