@@ -5,8 +5,13 @@ export const useCurrentGameStore = create((set) => ({
     id: 0,
     dateSaved: "",
     lastPlayed: "",
-    gameSummary: "",
     gameSettings: {},
-    setupPrompts: [],
+    setupPrompts: {},
   },
+  updateCurrentGame: (settings) =>
+    set((state) => {
+      state.currentGame = settings;
+      console.log(state.currentGame);
+      return state;
+    }),
 }));

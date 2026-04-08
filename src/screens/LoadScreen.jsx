@@ -2,23 +2,33 @@ import { useEffect, useState } from "react";
 import "../css/BootScreen.css";
 import { useMenuSettingsStore } from "../state/MenuSettingsStore";
 import { useCurrentGameStore } from "../state/CurrentGameStore";
-
+import { usePromptStore } from "../state/PromptStore";
 export const LoadScreen = () => {
   const menuSettings = useMenuSettingsStore((state) => state.menuSettings);
-  const currentGame = useCurrentGameStore((state) => state.currentGame);
+  const prompts = usePromptStore((state) => state.prompts);
+
+  const updateCurrentGame = useCurrentGameStore(
+    (state) => state.updateCurrentGame,
+  );
   const [activeImage, setActiveImage] = useState();
-  const [loops, setLoops] = useState(0);
   const images = [];
 
-  const onClick = () => {};
-
   useEffect(() => {
-    console.log(menuSettings);
-    console.log(currentGame);
+    updateCurrentGame({
+      id: Math.floor(Math.random() * 10000),
+      dateSaved: new Date(),
+      lastPlayed: new Date(),
+      gameSettings: menuSettings,
+      setupPrompts: {
+        setup: prompts.setup,
+        gameSummary: prompts.newGameSummary,
+        playerAction: prompts.newGamePlayerAction,
+      },
+    });
+
     const pickRandom = () => {
       const randomIndex = Math.floor(Math.random() * images.length);
       setActiveImage(images[randomIndex]);
-      setLoops((loops) => loops + 1);
     };
     pickRandom();
     const intervalId = setInterval(pickRandom, 1500);

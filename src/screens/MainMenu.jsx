@@ -8,7 +8,6 @@ import { useMenuSettingsStore } from "../state/MenuSettingsStore";
 import { useSavedGameStore } from "../state/SavedGameStore";
 
 export const MainMenu = ({ setActiveScreen }) => {
-  const menuSettings = useMenuSettingsStore((state) => state.menuSettings);
   const savedGames = useSavedGameStore((state) => state.savedGames);
 
   const onClick = () => {
