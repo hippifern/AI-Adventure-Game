@@ -2,6 +2,7 @@
 $primary-colour: rgb(75, 255, 75);
 $secondary-colour: rgba(75, 255, 75, 0.4);
 $background-colour: rgb(25, 25, 25);
+$large-font-size: 1.3rem;
 
 // GENERICS
 * {
@@ -17,15 +18,18 @@ p {
   font-family: monospace;
   color: $primary-colour;
 }
+h2 {
+  font-size: $large-font-size;
+}
 .line {
   border: 1px dashed $secondary-colour;
 }
-
 button {
   background-color: $background-colour;
   border-radius: 0;
   border: 1px solid $primary-colour;
   font-family: monospace;
+  font-size: $large-font-size;
   color: $primary-colour;
   outline: none;
 }

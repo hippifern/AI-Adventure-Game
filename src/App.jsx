@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./css/App.css";
 import { BootScreen } from "./screens/BootScreen";
+import { MainMenu } from "./screens/MainMenu";
 
 function App() {
   const [activeScreen, setActiveScreen] = useState(0);
@@ -20,7 +21,7 @@ function App() {
           </div>
           <div className="active-section-inner-lower">
             {activeScreen === 0 ? (
-              <BootScreen />
+              <BootScreen setActiveScreen={setActiveScreen} />
             ) : activeScreen === 1 ? (
               <MainMenu />
             ) : (
