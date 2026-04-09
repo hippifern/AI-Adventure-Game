@@ -67,10 +67,19 @@ export const LoadScreen = ({ setActiveScreen }) => {
 
   return (
     <div className="screen-container">
-      <div className="loading-bar-container">
-        {map.map((m) => {
-          return <div className="loading-item"></div>;
-        })}
+      <div className="inner-load-container">
+        {count < 4000 ? (
+          <h2>{`Your Genre: ${menuSettings[0].settingSelectedName}`}</h2>
+        ) : count < 8000 && count > 4000 ? (
+          <h2>{`Your Class: ${menuSettings[1].settingSelectedName}`}</h2>
+        ) : (
+          <h2>{`Your Difficulty: ${menuSettings[2].settingSelectedName}`}</h2>
+        )}
+        <div className="loading-bar-container">
+          {map.map((m) => {
+            return <div className="loading-item"></div>;
+          })}
+        </div>
       </div>
     </div>
   );
