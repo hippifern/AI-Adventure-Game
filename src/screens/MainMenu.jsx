@@ -6,11 +6,17 @@ import mask from "../assets/mask.png";
 import hat from "../assets/witch-hat.png";
 import arrow from "../assets/arrow.png";
 import castle from "../assets/fantasy-castle.png";
-import { useSavedGameStore } from "../state/SavedGameStore";
+import { useState } from "react";
+import { useCurrentGameStore } from "../state/CurrentGameStore";
 
 export const MainMenu = ({ setActiveScreen }) => {
-  const savedGames = useSavedGameStore((state) => state.savedGames);
+  const updateApiKey = useCurrentGameStore((state) => state.updateApiKey);
 
+  const [inputValue, setInputValue] = useState("");
+  const onClickApiKey = () => {
+    updateApiKey(inputValue);
+    setInputValue(`Saved - ${inputValue}`);
+  };
   const onClick = () => {
     setActiveScreen(2);
   };
@@ -29,33 +35,20 @@ export const MainMenu = ({ setActiveScreen }) => {
         </div>
         <div className="left-lower">
           <div className="load-game-container">
-            <MainMenuTitle titleText={"Load Saved Adventure"} />
-            <MainMenuOptions
-              options={[
-                {
-                  text: savedGames[0].title,
-                  date: savedGames[0].dateSaved,
-                  played: savedGames[0].lastPlayed,
-                  icon: arrow,
-                },
-                {
-                  text: savedGames[1].title,
-                  date: savedGames[1].dateSaved,
-                  played: savedGames[1].lastPlayed,
-                  icon: arrow,
-                },
-                {
-                  text: savedGames[2].title,
-                  date: savedGames[2].dateSaved,
-                  played: savedGames[2].lastPlayed,
-                  icon: arrow,
-                },
-              ]}
-              extraInfoActive={true}
-            />
+            <MainMenuTitle titleText={"Install AI API Key"} />
+            <div className="api-key-input-container">
+              <input
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
+                className="api-key-input"
+                type="text"
+                name=""
+                id=""
+              />
+            </div>
             <div className="load-button-container">
-              <button onClick={onClick} className="load-button button">
-                Load Adventure
+              <button onClick={onClickApiKey} className="load-button button">
+                Load AI
               </button>
             </div>
           </div>

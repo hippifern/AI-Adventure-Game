@@ -4,7 +4,6 @@ import { BootScreen } from "./screens/BootScreen";
 import { MainMenu } from "./screens/MainMenu";
 import { LoadScreen } from "./screens/LoadScreen";
 import { useBootStore } from "./state/BootStore";
-import { useSavedGameStore } from "./state/SavedGameStore";
 import { GameScreen } from "./screens/GameScreen";
 
 function App() {
@@ -35,7 +34,6 @@ function App() {
                 <div className="line"></div>
               </div>
               <div className="alt-options">
-                <button className="alt-button">Save</button>
                 <button
                   onClick={() => {
                     setActiveScreen(1);

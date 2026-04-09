@@ -16,7 +16,7 @@ $font: "Handjet", monospace;
     display: flex;
     flex-direction: column;
     .upper {
-      height: 40%;
+      height: 30%;
       display: flex;
       padding: 1%;
       .image-container {
@@ -91,7 +91,7 @@ $font: "Handjet", monospace;
       }
     }
     .lower {
-      height: 380px;
+      height: 480px;
       display: flex;
       flex-direction: column;
       .textbox-container {

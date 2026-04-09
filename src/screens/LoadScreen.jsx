@@ -20,22 +20,19 @@ export const LoadScreen = ({ setActiveScreen }) => {
   );
   const [map, setMap] = useState([]);
   const [count, setCount] = useState(0);
+  const [messageListUpdated, setMessageListUpdated] = useState(false);
   const ai = new GoogleGenAI({
-    apiKey: "",
+    apiKey: currentGame.api_key,
   });
-
-  console.log(
-    `The adventure is the ${menuSettings[0].settingSelectedName} genre (world description: ${menuSettings[0].settingSelectedDescription})\nThe player class is ${menuSettings[1].settingSelectedName} (class description: ${menuSettings[1].settingSelectedDescription})\nThe difficulty of the adventure should be ${menuSettings[2].settingSelectedName}`,
-  );
 
   useLayoutEffect(() => {
     updateCurrentGame({
       gameSettings: menuSettings,
-      gameSummary: `The adventure is the ${menuSettings[0].settingSelectedName} genre. 
-      The player class is ${menuSettings[1].settingSelectedName} and 
+      gameSummary: `The adventure is the ${menuSettings[0].settingSelectedName} genre (World Description: ${menuSettings[0].settingSelectedDescription}) 
+      The player class is ${menuSettings[1].settingSelectedName} (Class Description: ${menuSettings[1].settingSelectedDescription}) and 
       the difficulty of the adventure should be ${menuSettings[2].settingSelectedName}`,
       playerAction: "The player has not made an action yet.",
-      messageList: [],
+      ai: ai,
     });
     updatePlayerInventory(menuSettings[1].settingSelectedName);
 
@@ -48,9 +45,11 @@ export const LoadScreen = ({ setActiveScreen }) => {
         player_message: currentGame.setupPrompts.playerAction,
         ai_reply: response.text,
       });
+      setMessageListUpdated(true);
+      console.log(response);
     }
 
-    // setupDungeonMasterOnLoad();
+    setupDungeonMasterOnLoad();
   }, []);
 
   useEffect(() => {
@@ -59,9 +58,11 @@ export const LoadScreen = ({ setActiveScreen }) => {
       setCount((count) => count + 1500);
     };
     const intervalId = setInterval(countUp, 1500);
-    setTimeout(() => {
-      setActiveScreen(3);
-    }, 13500);
+    if (messageListUpdated) {
+      setTimeout(() => {
+        setActiveScreen(3);
+      }, 2000);
+    }
     return () => clearInterval(intervalId);
   }, [map, count]);
 
