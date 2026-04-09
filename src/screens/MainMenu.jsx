@@ -140,14 +140,20 @@ export const MainMenu = ({ setActiveScreen }) => {
               {
                 text: "Casual",
                 icon: arrow,
+                description:
+                  "You enjoy a good story, rather than fighting for your life.",
               },
               {
                 text: "Tricky",
                 icon: arrow,
+                description:
+                  "You want a good mix of tricky issues and scrappy fights as well as a good story.",
               },
               {
                 text: "Brutal",
                 icon: arrow,
+                description:
+                  "You're here to get into the stickiest, scariest situations out there.",
               },
             ]}
           />

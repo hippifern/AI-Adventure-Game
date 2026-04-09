@@ -2,6 +2,7 @@
 $primary-colour: rgb(75, 255, 75);
 $secondary-colour: rgba(75, 255, 75, 0.4);
 $background-colour: rgb(20, 20, 20);
+$font: "Handjet", monospace;
 
 //GENERICS
 .main-menu-title {
@@ -32,14 +33,19 @@ $background-colour: rgb(20, 20, 20);
     }
   }
 }
-ul {
-  li {
-  }
-}
+
 .icon {
   height: 20px;
   filter: brightness(0) saturate(100%) invert(93%) sepia(95%) saturate(3930%)
     hue-rotate(49deg) brightness(111%) contrast(101%);
+}
+
+#my-tooltip {
+  border: 1px solid $primary-colour;
+  background-color: $background-colour;
+  color: $primary-colour;
+  font-family: $font;
+  font-size: 1.1rem;
 }
 
 // SCREEN STRUCTURE
