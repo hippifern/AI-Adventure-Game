@@ -4,7 +4,7 @@ import castle from "../assets/fantasy-castle.png";
 import { useCurrentGameStore } from "../state/CurrentGameStore";
 import { usePlayerStore } from "../state/PlayerStore";
 import { GoogleGenAI } from "@google/genai";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const GameScreen = () => {
   const currentGame = useCurrentGameStore((state) => state.currentGame);
@@ -15,6 +15,7 @@ export const GameScreen = () => {
   const [messageHistoryParsed, setMessageHistoryParsed] = useState([]);
   const [latestMessage, setLatestMessage] = useState("");
   const [latestReply, setLatestReply] = useState("");
+  const bottomRef = useRef(null);
 
   useEffect(() => {
     const messageHistoryParsed2 = currentGame.messageList.map((message) => {
@@ -23,6 +24,10 @@ export const GameScreen = () => {
     });
     setMessageHistoryParsed(messageHistoryParsed2);
   }, [latestReply]);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messageHistoryParsed]);
 
   const handleChange = (event) => {
     if (event.key === "Enter") {
@@ -98,18 +103,21 @@ export const GameScreen = () => {
         </div>
         <div className="lower">
           <div className="textbox-container">
-            {messageHistoryParsed.map((messageArray, index) => {
-              if (index >= 1) {
-                return messageArray.map((line) => {
-                  return (
-                    <>
-                      <p>{line}</p>
-                      <br />
-                    </>
-                  );
-                });
-              }
-            })}
+            <>
+              {messageHistoryParsed.map((messageArray, index) => {
+                if (index >= 1) {
+                  return messageArray.map((line) => {
+                    return (
+                      <>
+                        <p>{line}</p>
+                        <br />
+                      </>
+                    );
+                  });
+                }
+              })}
+              <div ref={bottomRef} />
+            </>
           </div>
           <div className="last-action-container">
             <h4>Last Action:</h4>
