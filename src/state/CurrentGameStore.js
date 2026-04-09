@@ -5,7 +5,7 @@ export const useCurrentGameStore = create((set) => ({
     id: 0,
     dateSaved: "",
     lastPlayed: "",
-    gameSettings: {},
+    gameSettings: [],
     setupPrompts: {
       setup: `You are a Dungeon Master running a retro text adventure game.
 

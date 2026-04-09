@@ -6,16 +6,19 @@ export const useMenuSettingsStore = create((set) => ({
       settingTitle: "genre",
       settingSelected: -1,
       settingSelectedName: "",
+      settingSelectedDescription: "",
     },
     {
       settingTitle: "playerClass",
       settingSelected: -1,
       settingSelectedName: "",
+      settingSelectedDescription: "",
     },
     {
       settingTitle: "difficulty",
       settingSelected: -1,
       settingSelectedName: "",
+      settingSelectedDescription: "",
     },
   ],
   updateMenuSettings: (setting) =>
@@ -24,6 +27,7 @@ export const useMenuSettingsStore = create((set) => ({
         settingTitle: setting.settingTitle,
         settingSelected: setting.settingSelected,
         settingSelectedName: setting.settingSelectedName,
+        settingSelectedDescription: setting.settingSelectedDescription,
       };
       return state;
     }),
@@ -33,6 +37,7 @@ export const useMenuSettingsStore = create((set) => ({
         settingTitle: setting.settingTitle,
         settingSelected: -1,
         settingSelectedName: "",
+        settingSelectedDescription: "",
       };
       return state;
     }),
@@ -43,16 +48,19 @@ export const useMenuSettingsStore = create((set) => ({
           settingTitle: "genre",
           settingSelected: -1,
           settingSelectedName: "",
+          settingSelectedDescription: "",
         },
         {
           settingTitle: "playerClass",
           settingSelected: -1,
           settingSelectedName: "",
+          settingSelectedDescription: "",
         },
         {
           settingTitle: "difficulty",
           settingSelected: -1,
           settingSelectedName: "",
+          settingSelectedDescription: "",
         },
       ];
       return state;

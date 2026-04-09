@@ -18,6 +18,7 @@ export const MainMenuOptions = ({ options, extraInfoActive, name, id }) => {
       settingTitle: name,
       settingSelected: idx,
       settingSelectedName: option.text,
+      settingSelectedDescription: option.description,
     });
   };
 

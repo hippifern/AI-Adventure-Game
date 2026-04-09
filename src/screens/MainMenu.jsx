@@ -74,18 +74,26 @@ export const MainMenu = ({ setActiveScreen }) => {
               {
                 text: "Fantasy Land",
                 icon: arrow,
+                description:
+                  "A high fantasy land of orcs, goblins, kings, queens and dragons. It is filled with castles, evil wizards, and all the tropes of high fantasy.",
               },
               {
                 text: "Dungeon Delve",
                 icon: arrow,
+                description:
+                  "A deep dark dungeon filled with living skeletons and every type of undead creature you can imagine.",
               },
               {
-                text: "Horror Crypts",
+                text: "Horror World",
                 icon: arrow,
+                description:
+                  "The medeival world you inhabit has been overrun by demons, and every kind of dark creature you can imagine. Can you find the source and beat them back?",
               },
               {
                 text: "Post-Apocalypse",
                 icon: arrow,
+                description:
+                  "The beautiful green land around you has been destroyed and all thats left is a ruined wasteland of moutains, deserts and roaming bands of warlords and raiders",
               },
             ]}
           />
@@ -99,18 +107,26 @@ export const MainMenu = ({ setActiveScreen }) => {
               {
                 text: "Rogue",
                 icon: mask,
+                description:
+                  "You live in the shadows, preferring a quick dagger in the back over a face to face fight.",
               },
               {
                 text: "Fighter",
                 icon: sword,
+                description:
+                  "You're an honourable and upright fighter, with your sword at your side you seek justice in the world, and a good scrap.",
               },
               {
                 text: "Healer",
                 icon: hat,
+                description:
+                  "Making the world a better place is your goal, to heal and make all those around you healthy and better off for meeting you.",
               },
               {
                 text: "Magician",
                 icon: hat,
+                description:
+                  "The hidden world of fire, wind, earth, and more is your plaything. Turning the elements into magic spells.",
               },
             ]}
           />
@@ -126,11 +142,11 @@ export const MainMenu = ({ setActiveScreen }) => {
                 icon: arrow,
               },
               {
-                text: "Brutal",
+                text: "Tricky",
                 icon: arrow,
               },
               {
-                text: "AI Hates Me",
+                text: "Brutal",
                 icon: arrow,
               },
             ]}

@@ -24,6 +24,10 @@ export const LoadScreen = ({ setActiveScreen }) => {
     apiKey: "",
   });
 
+  console.log(
+    `The adventure is the ${menuSettings[0].settingSelectedName} genre (world description: ${menuSettings[0].settingSelectedDescription})\nThe player class is ${menuSettings[1].settingSelectedName} (class description: ${menuSettings[1].settingSelectedDescription})\nThe difficulty of the adventure should be ${menuSettings[2].settingSelectedName}`,
+  );
+
   useLayoutEffect(() => {
     updateCurrentGame({
       gameSettings: menuSettings,
@@ -46,7 +50,7 @@ export const LoadScreen = ({ setActiveScreen }) => {
       });
     }
 
-    setupDungeonMasterOnLoad();
+    // setupDungeonMasterOnLoad();
   }, []);
 
   useEffect(() => {
