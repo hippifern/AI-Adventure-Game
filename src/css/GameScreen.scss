@@ -96,11 +96,18 @@ $font: "Handjet", monospace;
       flex-direction: column;
       .textbox-container {
         flex: 5;
-        padding: 1.5%;
+        padding: 1%;
         overflow: scroll;
         p {
           font-size: 1.2rem;
         }
+      }
+      .last-action-container {
+        padding-left: 1%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 2%;
       }
       .typingbox-container {
         flex: 1;

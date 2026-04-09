@@ -10,6 +10,8 @@ export const GameScreen = () => {
   const currentGame = useCurrentGameStore((state) => state.currentGame);
   const playerStats = usePlayerStore((state) => state.playerStats);
   const [messageHistoryParsed, setMessageHistoryParsed] = useState([]);
+  const [latestMessage, setLatestMessage] = useState({});
+
   console.log(currentGame);
 
   const ai = new GoogleGenAI({
@@ -23,6 +25,13 @@ export const GameScreen = () => {
     });
     setMessageHistoryParsed(messageHistoryParsed2);
   }, []);
+
+  const handleChange = (event) => {
+    if (event.key === "Enter") {
+      setLatestMessage(event.target.value);
+    }
+    console.log("value is:", event.target.value);
+  };
 
   return (
     <div className="container">
@@ -93,9 +102,13 @@ export const GameScreen = () => {
               });
             })}
           </div>
+          <div className="last-action-container">
+            <h4>Last Action:</h4>
+            <p>{latestMessage}</p>
+          </div>
           <div className="typingbox-container">
             <img className="icon" src={arrow} alt="" />
-            <input type="text" name="" id="" />
+            <input type="text" name="" id="" onKeyDown={handleChange} />
           </div>
         </div>
       </div>

@@ -35,6 +35,7 @@ Occasionally introduce danger, mystery, or moral dilemmas.`,
       playerAction: "This player has not made an action yet",
     },
     messageList: [],
+    latestMessage: {},
   },
   updateCurrentGame: (settings) =>
     set((state) => {
@@ -72,6 +73,7 @@ Occasionally introduce danger, mystery, or moral dilemmas.`,
           playerAction: settings.playerAction,
         },
         messageList: settings.messageList,
+        latestMessage: {},
       };
       return state;
     }),
@@ -82,5 +84,9 @@ Occasionally introduce danger, mystery, or moral dilemmas.`,
         newMessage,
       ];
       return state;
+    }),
+  updateLatestMessage: (message) =>
+    set((state) => {
+      state.currentGame.latestMessage = message;
     }),
 }));
