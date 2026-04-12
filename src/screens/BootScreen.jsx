@@ -33,7 +33,7 @@ export const BootScreen = (props) => {
 
   return (
     <div className="screen-container">
-      {loops >= 10 ? (
+      {loops >= 5 ? (
         <button onClick={onClickBootButton}>Boot the Adventure</button>
       ) : (
         <h2 className="loading-text">{activePhrase}</h2>

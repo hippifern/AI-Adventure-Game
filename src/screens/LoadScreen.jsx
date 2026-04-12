@@ -15,9 +15,9 @@ export const LoadScreen = ({ setActiveScreen }) => {
     (state) => state.updateMessageList,
   );
 
-  const updatePlayerInventory = usePlayerStore(
-    (state) => state.updatePlayerInventory,
-  );
+  const setPlayerStat = usePlayerStore((state) => state.setPlayerStat);
+  const playerStats = usePlayerStore((state) => state.playerStats);
+
   const [map, setMap] = useState([]);
   const [count, setCount] = useState(0);
   const [messageListUpdated, setMessageListUpdated] = useState(false);
@@ -34,7 +34,8 @@ export const LoadScreen = ({ setActiveScreen }) => {
       playerAction: "The player has not made an action yet.",
       ai: ai,
     });
-    updatePlayerInventory(menuSettings[1].settingSelectedName);
+
+    setPlayerStat(menuSettings[1].settingSelectedName);
 
     async function setupDungeonMasterOnLoad() {
       const response = await ai.models.generateContent({
@@ -46,7 +47,6 @@ export const LoadScreen = ({ setActiveScreen }) => {
         ai_reply: response.text,
       });
       setMessageListUpdated(true);
-      console.log(response);
     }
 
     setupDungeonMasterOnLoad();
@@ -66,6 +66,7 @@ export const LoadScreen = ({ setActiveScreen }) => {
     return () => clearInterval(intervalId);
   }, [map, count]);
 
+  console.log(playerStats);
   return (
     <div className="screen-container">
       <div className="inner-load-container">

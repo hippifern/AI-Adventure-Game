@@ -14,6 +14,9 @@ RULES:
 - Make the choices meaingfully different from each other.
 - Occasionally introduce danger, mystery or moral dilema.
 - Use British English and avoid common AI writing techniques (e.g. em dashes)
+- Intermittently increase or decrease health, after a significant action
+- Strength, Energy and Luck determine the players success at different actions (e.g. disarming a tripwire is easier with higher luck, and might fail with lower luck)
+- if health drops to zero, you should end the game and not provide any new choices.
 
 STRUCTURE YOUR RESPONSE EXACTLY AS:
 
@@ -26,6 +29,8 @@ CHOICES:
 3. <option>
 4. Type your own action.
 
+STATS CHANGE;
+Health. -X/10,
 `;
 
 export const useCurrentGameStore = create((set) => ({
