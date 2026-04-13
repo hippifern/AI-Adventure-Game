@@ -3,12 +3,13 @@ import arrow from "../assets/arrow.png";
 import castle from "../assets/fantasy-castle.png";
 import { useCurrentGameStore } from "../state/CurrentGameStore";
 import { usePlayerStore } from "../state/PlayerStore";
-import { GoogleGenAI } from "@google/genai";
 import { useEffect, useRef, useState } from "react";
 
 export const GameScreen = () => {
   const currentGame = useCurrentGameStore((state) => state.currentGame);
   const playerStats = usePlayerStore((state) => state.playerStats);
+  const updatePlayerStat = usePlayerStore((state) => state.updatePlayerStat);
+
   const updateMessageList = useCurrentGameStore(
     (state) => state.updateMessageList,
   );
@@ -31,9 +32,6 @@ export const GameScreen = () => {
 
   const handleChange = (event) => {
     if (event.key === "Enter") {
-      console.log(
-        `Previous Conversation:\n${JSON.stringify(currentGame.messageList)}\nLatest Player action:\n${event.target.value}`,
-      );
       getAIReply(
         `Previous Conversation:\n${JSON.stringify(currentGame.messageList)}\nLatest Player action:\n${event.target.value}`,
       );
@@ -51,6 +49,10 @@ export const GameScreen = () => {
       ai_reply: response.text,
     });
     setLatestReply(response.text);
+    const healthChangeText = response.text.split("Health. ")[1];
+    const healthChange = healthChangeText.split("/")[0];
+
+    updatePlayerStat(healthChange[0], Number(healthChange[1]));
   }
 
   return (

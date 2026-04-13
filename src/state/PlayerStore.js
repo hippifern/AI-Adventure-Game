@@ -39,56 +39,18 @@ export const usePlayerStore = create((set) => ({
 
       return state;
     }),
-  updatePlayerStat: (stat, type, value) =>
+  updatePlayerStat: (type, value) =>
     set((state) => {
-      if (stat === "health") {
-        if (type === "decrease") {
-          state.playerStats.health = state.playerStats.health - value;
-        } else if (type === "increase") {
-          state.playerStats.health = state.playerStats.health + value;
-        }
+      if (type === "+") {
+        state.playerStats.health = state.playerStats.health + value;
+      } else if (type === "-") {
+        state.playerStats.health = state.playerStats.health - value;
+      }
 
-        if (state.playerStats.health > 10) {
-          state.playerStats.health = 10;
-        } else if (state.playerStats.health < 0) {
-          state.playerStats.health = 0;
-        }
-      } else if (stat === "energy") {
-        if (type === "decrease") {
-          state.playerStats.energy = state.playerStats.energy - value;
-        } else if (type === "increase") {
-          state.playerStats.energy = state.playerStats.energy + value;
-        }
-
-        if (state.playerStats.energy > 10) {
-          state.playerStats.energy = 10;
-        } else if (state.playerStats.energy < 0) {
-          state.playerStats.energy = 0;
-        }
-      } else if (stat === "strength") {
-        if (type === "decrease") {
-          state.playerStats.strength = state.playerStats.strength - value;
-        } else if (type === "increase") {
-          state.playerStats.strength = state.playerStats.strength + value;
-        }
-
-        if (state.playerStats.strength > 10) {
-          state.playerStats.strength = 10;
-        } else if (state.playerStats.strength < 0) {
-          state.playerStats.strength = 0;
-        }
-      } else if (stat === "luck") {
-        if (type === "decrease") {
-          state.playerStats.luck = state.playerStats.luck - value;
-        } else if (type === "increase") {
-          state.playerStats.luck = state.playerStats.luck + value;
-        }
-
-        if (state.playerStats.luck > 10) {
-          state.playerStats.luck = 10;
-        } else if (state.playerStats.luck < 0) {
-          state.playerStats.luck = 0;
-        }
+      if (state.playerStats.health > 10) {
+        state.playerStats.health = 10;
+      } else if (state.playerStats.health < 0) {
+        state.playerStats.health = 0;
       }
 
       return state;
