@@ -60,7 +60,7 @@ function App() {
             ) : activeScreen === 2 ? (
               <LoadScreen setActiveScreen={setActiveScreen} />
             ) : activeScreen === 3 ? (
-              <GameScreen />
+              <GameScreen setActiveScreen={setActiveScreen} />
             ) : (
               <></>
             )}

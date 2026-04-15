@@ -5,7 +5,7 @@ import { useCurrentGameStore } from "../state/CurrentGameStore";
 import { usePlayerStore } from "../state/PlayerStore";
 import { useEffect, useRef, useState } from "react";
 
-export const GameScreen = () => {
+export const GameScreen = ({ setActiveScreen }) => {
   const currentGame = useCurrentGameStore((state) => state.currentGame);
   const playerStats = usePlayerStore((state) => state.playerStats);
   const updatePlayerStat = usePlayerStore((state) => state.updatePlayerStat);
@@ -39,7 +39,15 @@ export const GameScreen = () => {
     }
   };
 
+  const checkHealthAndUpdate = () => {
+    console.log(playerStats.health);
+    if (playerStats.health === 0) {
+      setActiveScreen(1);
+    }
+  };
+
   async function getAIReply(message) {
+    checkHealthAndUpdate();
     const response = await currentGame.ai.models.generateContent({
       model: "gemini-3.1-flash-lite-preview",
       contents: message,
