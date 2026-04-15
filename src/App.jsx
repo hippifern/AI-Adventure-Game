@@ -5,6 +5,7 @@ import { MainMenu } from "./screens/MainMenu";
 import { LoadScreen } from "./screens/LoadScreen";
 import { useBootStore } from "./state/BootStore";
 import { GameScreen } from "./screens/GameScreen";
+import { GameScreenEnd } from "./screens/GameEndScreen";
 
 function App() {
   const loadBootCheck = useBootStore((state) => state.loadBootCheck);
@@ -61,6 +62,8 @@ function App() {
               <LoadScreen setActiveScreen={setActiveScreen} />
             ) : activeScreen === 3 ? (
               <GameScreen setActiveScreen={setActiveScreen} />
+            ) : activeScreen === 4 ? (
+              <GameScreenEnd setActiveScreen={setActiveScreen} />
             ) : (
               <></>
             )}
