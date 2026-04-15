@@ -13,7 +13,7 @@ function App() {
 
   useLayoutEffect(() => {
     loadBootCheck();
-    if (bootActive === "false") {
+    if (bootActive) {
       setActiveScreen(1);
     }
   }, [bootActive]);
@@ -27,6 +27,7 @@ function App() {
           </div>
         </div>
         <div className="active-section-outer">
+          {/* renders navbar options */}
           {activeScreen === 3 ? (
             <div className="alt-section">
               <div className="inner-upper">
@@ -50,6 +51,7 @@ function App() {
               <div className="line"></div>
             </div>
           )}
+          {/* renders screen options */}
           <div className="active-section-inner-lower">
             {activeScreen === 0 && bootActive === "true" ? (
               <BootScreen setActiveScreen={setActiveScreen} />

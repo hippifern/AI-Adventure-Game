@@ -1,33 +1,25 @@
 import { useState, useEffect } from "react";
 import "../css/BootScreen.css";
 import { useBootStore } from "../state/BootStore";
+import { useGameDataStore } from "../state/GameDataStore";
+import { pickRandom } from "../supportFunctions.js";
 
-export const BootScreen = (props) => {
+export const BootScreen = ({ setActiveScreen }) => {
   const updateBootActive = useBootStore((state) => state.updateBootActive);
-
+  const bootPhrases = useGameDataStore((state) => state.bootPhrases);
   const [activePhrase, setActivePhrase] = useState();
   const [loops, setLoops] = useState(0);
-  const phrases = [
-    "Loading the mainframe...",
-    "Warming up the world engine...",
-    "Brushing off the editor...",
-    "Tweaking the nuts and bolts...",
-    "Coffee break, back in 5 minutes...",
-  ];
 
   const onClickBootButton = () => {
     updateBootActive();
-    props.setActiveScreen(1);
+    setActiveScreen(1);
   };
 
   useEffect(() => {
-    const pickRandom = () => {
-      const randomIndex = Math.floor(Math.random() * phrases.length);
-      setActivePhrase(phrases[randomIndex]);
-      setLoops((loops) => loops + 1);
-    };
-    pickRandom();
-    const intervalId = setInterval(pickRandom, 1500);
+    const { randomValue } = pickRandom(bootPhrases);
+    setActivePhrase(randomValue);
+    setLoops((loops) => loops + 1);
+    const intervalId = setInterval(() => pickRandom(bootPhrases), 1500);
     return () => clearInterval(intervalId);
   }, []);
 

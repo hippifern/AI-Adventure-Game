@@ -11,7 +11,6 @@ import { useCurrentGameStore } from "../state/CurrentGameStore";
 
 export const MainMenu = ({ setActiveScreen }) => {
   const updateApiKey = useCurrentGameStore((state) => state.updateApiKey);
-
   const [inputValue, setInputValue] = useState("");
   const onClickApiKey = () => {
     updateApiKey(inputValue);
